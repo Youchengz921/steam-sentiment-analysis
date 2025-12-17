@@ -1,0 +1,34 @@
+# 虛擬環境
+.venv/
+venv/
+env/
+
+# 模型檔案 (太大，放 Google Drive)
+fine_tuned_model/model.safetensors
+
+# Python 快取
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# 訓練資料 (太大)
+training_data.csv
+data/
+
+# 訓練過程的 checkpoints (只保留最終模型)
+fine_tuned_model/checkpoint-*/
+
+# 日誌
+logs/
+*.log
+
+# IDE 設定
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 系統檔案
+.DS_Store
+Thumbs.db
