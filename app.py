@@ -143,7 +143,7 @@ with st.sidebar:
     st.divider()
     st.subheader("🗄️ 快取管理")
     st.caption("評論資料會快取 24 小時，點擊下方按鈕可手動清除快取以重新下載。")
-    if st.button("🗑️ 清除評論快取", use_container_width=True):
+    if st.button("🗑️ 清除評論快取", width="stretch"):
         fetch_reviews_cached.clear()  # 清除快取
         st.success("✅ 快取已清除！下次分析時會重新下載評論。")
 
@@ -158,7 +158,7 @@ with col_search:
 with col_btn:
     st.write("") # 排版佔位用
     st.write("")
-    analyze_btn = st.button("🚀 開始分析", use_container_width=True)
+    analyze_btn = st.button("🚀 開始分析", width="stretch")
 
 if analyze_btn and game_name_input:
     # 1. 搜尋遊戲
@@ -286,10 +286,10 @@ if analyze_btn and game_name_input:
                     color_discrete_map={"正面 (Good)": "#66c2a5", "負面 (Bad)": "#ef553b"},
                     hole=0.4
                 )
-                st.plotly_chart(fig_pie, use_container_width=True)
+                st.plotly_chart(fig_pie, width="stretch")
 
 
                 
                 # [區域 4] 詳細資料表
                 with st.expander("點擊查看詳細評論數據表"):
-                    st.dataframe(df, use_container_width=True)
+                    st.dataframe(df, width="stretch")
