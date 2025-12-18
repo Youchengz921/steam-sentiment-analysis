@@ -71,6 +71,7 @@ def fetch_single_language(app_id, limit, language, status_obj=None):
     """抓取單一語言的評論"""
     reviews_data = []
     cursor = '*'
+    seen_texts = {}  # 用於追蹤重複評論
     
     base_url = f"https://store.steampowered.com/appreviews/{app_id}"
     
@@ -105,6 +106,15 @@ def fetch_single_language(app_id, limit, language, status_obj=None):
                 if not review_text or len(str(review_text).strip()) == 0:
                     continue
                 
+                # 過濾重複評論（同樣內容最多 5 則）
+                text_key = review_text[:100]  # 用前100字作為key
+                if text_key in seen_texts:
+                    seen_texts[text_key] += 1
+                    if seen_texts[text_key] > 5:
+                        continue
+                else:
+                    seen_texts[text_key] = 1
+                
                 reviews_data.append({
                     'text': review_text,
                     'votes_up': r.get('votes_up', 0),
@@ -137,7 +147,7 @@ def fetch_reviews_cached(app_id, limit=100, language='english'):
 with st.sidebar:
     st.header("⚙️ 設定面板")
     target_language = st.selectbox("評論語言", ["all", "english", "schinese", "tchinese"], index=0, help="選擇 'all' 以抓取所有語言的評論 (包含中文)")
-    review_count = st.slider("抓取評論數量", min_value=50, max_value=1000, value=200, step=50)
+    review_count = st.slider("抓取評論數量", min_value=50, max_value=5000, value=200, step=50)
     st.info("💡 提示：數量越多，AI 分析時間會越長。選擇 'all' 可以抓到最多資料。")
     
     st.divider()

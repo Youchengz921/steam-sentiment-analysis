@@ -86,7 +86,7 @@ def main():
     
     training_args = TrainingArguments(
         output_dir=OUTPUT_MODEL_DIR,
-        num_train_epochs=7,                   
+        num_train_epochs=5,                   
         per_device_train_batch_size=32,
         per_device_eval_batch_size=32,
         learning_rate=2e-5,                   
