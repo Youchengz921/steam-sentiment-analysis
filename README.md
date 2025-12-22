@@ -147,7 +147,7 @@ pip install transformers datasets evaluate scikit-learn accelerate pandas stream
 
 # 4. 下載模型檔案
 # 從 Google Drive 下載 model.safetensors 並放到 fine_tuned_model/ 資料夾
-# 下載連結：https://drive.google.com/file/d/1mMXuMHhT6qqDyFCaxgyRKAXr0hZwFfyY/view?usp=drive_link
+# 下載連結：https://drive.google.com/file/d/1uZRswafEu4GSNScYoc996ahvZLvvA9wv/view?usp=drive_link
 ```
 
 ### 使用方式
