@@ -136,7 +136,7 @@ Steam 評論資料 → 資料清洗 → 分詞處理 → 模型微調 → 儲存
 
 ```bash
 # 1. 建立虛擬環境
-python -m venv .venv
+python -m venv venv
 .\venv\Scripts\Activate.ps1
 
 # 2. 安裝 PyTorch（CUDA 版本）
