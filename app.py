@@ -158,13 +158,13 @@ with st.sidebar:
         st.success("✅ 快取已清除！下次分析時會重新下載評論。")
 
 # --- 主程式介面 ---
-st.title("🎮 Steam 評論 AI 分析器 Pro")
+st.title("🎮 Steam 評論 AI 分析器 ")
 st.markdown("### 運用 NLP 技術，一鍵洞察玩家真實反饋")
 
 # 搜尋區塊
 col_search, col_btn = st.columns([4, 1])
 with col_search:
-    game_name_input = st.text_input("輸入遊戲名稱 (英文)", placeholder="例如: Palworld, Elden Ring")
+    game_name_input = st.text_input("輸入遊戲名稱 ", placeholder="例如: Palworld, Elden Ring")
 with col_btn:
     st.write("") # 排版佔位用
     st.write("")
